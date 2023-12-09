@@ -7,7 +7,7 @@ class Vector{
 public:
     Vector();
     Vector(int);
-    Vector(int, T);
+    Vector(int, const T&);
 
     ~Vector();
 
@@ -20,6 +20,8 @@ public:
 
     template<class... A>
     void emplace_back(const A& ...);
+
+    void insert(int index, const T&);
 
     T* begin();
     T* end();
@@ -34,4 +36,5 @@ private:
     T *array_;
 
     void extend_array(const int&);
+    bool is_full();
 };

@@ -3,6 +3,7 @@
 
 #include "ds_vector.hpp"
 
+
 struct Point{
     int x;
     int y;
@@ -15,6 +16,13 @@ struct Point{
     Point(){
         x = 0;
         y = 0;
+    }
+
+    Point& operator= (const Point& op){
+        x = op.x;
+        y = op.y;
+
+        return *this;
     }
 
     ~Point(){}
@@ -44,5 +52,17 @@ int main(int, char**){
     print(v);
     v.emplace_back(3, 4);
     print(v);
-    
+    v.insert(1, Point(5, 6));
+    print(v);
+
+    std::cout << "===========\n";
+
+    v.pop();
+    print(v);
+    v.push_back(Point(2, 3));
+    print(v);
+    v.emplace_back(3, 4);
+    print(v);
+    v.insert(1, Point(5, 6));
+    print(v);
 }
