@@ -8,12 +8,13 @@ public:
     Vector();
     Vector(int);
     Vector(int, const T&);
+    Vector(const Vector<T>&);
 
     ~Vector();
 
-    int get_size();
+    int get_size() const;
 
-    T& operator[](unsigned);
+    T& operator[](unsigned) const;
 
     void pop();
     void push_back(const T&);
@@ -23,8 +24,8 @@ public:
 
     void insert(int index, const T&);
 
-    T* begin();
-    T* end();
+    T* begin() const;
+    T* end() const;
 
 
 private:

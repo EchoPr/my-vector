@@ -1,6 +1,8 @@
 #include "ds_vector.h"
 
 
+// Constructors and Destructors
+
 template<class T>
 Vector<T>::Vector(){
     size_ = 0;
@@ -15,11 +17,19 @@ Vector<T>::Vector(int size){
 
 template<class T>
 Vector<T>::Vector(int size, const T& value) : Vector(size){    
-    for(int i = 0; i < size; i++){
+    for(int i = 0; i < size; i++)
         array_[i] = value;
-    }
+    
 
     itop_ = array_ + size - 1;
+}
+
+template<class T>
+Vector<T>::Vector(const Vector<T>& v) : Vector(v.get_size()){
+    for (int i = 0; i < size_; i++)
+        array_[i] = v[i];
+
+    itop_ = array_ + size_ - 1;
 }
 
 template<class T>
@@ -29,34 +39,24 @@ Vector<T>::~Vector(){
     itop_ = nullptr;
 }
 
+
+// getters and setters
+
 template<class T>
-int Vector<T>::get_size(){
+int Vector<T>::get_size() const{
     return size_;
 }
 
+
+// operators
+
 template<class T>
-T& Vector<T>::operator[](unsigned index){
+T& Vector<T>::operator[](unsigned index) const{
     return array_[index];
 }
 
-template<class T>
-void Vector<T>::extend_array(const int& extend_degree){
-    T *temp_array = new T[size_ * extend_degree];
 
-    for (int i = 0; i < size_; i++)
-        temp_array[i] = array_[i];
-
-    delete [] array_;
-    array_ = temp_array;
-
-    itop_ = end() - 1;
-    size_ *= extend_degree; 
-}
-
-template <class T>
-bool Vector<T>::is_full(){
-    return cur_num_elems == size_;
-}
+// public modifying methods
 
 template<class T>
 void Vector<T>::pop(){
@@ -96,14 +96,37 @@ void Vector<T>::insert(int index, const T& el){
     itop_++;
 }
 
+
+// public const methods
+
 template<class T>
-T* Vector<T>::begin(){
+T* Vector<T>::begin() const{
     return array_;
 }
 
 template<class T>
-T* Vector<T>::end(){
+T* Vector<T>::end() const{
     return array_ + cur_num_elems;
 }
 
 
+// private utility methods
+
+template<class T>
+void Vector<T>::extend_array(const int& extend_degree){
+    T *temp_array = new T[size_ * extend_degree];
+
+    for (int i = 0; i < size_; i++)
+        temp_array[i] = array_[i];
+
+    delete [] array_;
+    array_ = temp_array;
+
+    itop_ = end() - 1;
+    size_ *= extend_degree; 
+}
+
+template <class T>
+bool Vector<T>::is_full(){
+    return cur_num_elems == size_;
+}

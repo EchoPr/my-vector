@@ -44,6 +44,9 @@ int main(int, char**){
     std::cin >> size;
 
     Vector<Point> v(size, Point(1, 2));
+    Vector<Point> u(v);
+
+    // print(u);
 
     print(v);
     v.pop();
