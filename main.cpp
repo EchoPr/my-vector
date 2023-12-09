@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 
-#include "ds_vector.h"
+#include "ds_vector.hpp"
 
 void print(Vector<int>& v){
     for (auto i = v.begin(); i != v.end(); i++){
