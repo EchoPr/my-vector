@@ -17,13 +17,17 @@ public:
 
     void pop();
     void push_back(const T&);
-    auto begin();
-    auto end();
+
+    template<class... A>
+    void emplace_back(const A& ...);
+
+    T* begin();
+    T* end();
 
 
 private:
     int size_ = 0;
-    int *itop_;
+    T *itop_;
     int cur_num_elems = 0;
     int coef_of_extension = 2;
 

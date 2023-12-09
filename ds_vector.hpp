@@ -69,12 +69,18 @@ void Vector<T>::push_back(const T& el){
 }
 
 template<class T>
-auto Vector<T>::begin(){
+template<class... Args>
+void Vector<T>::emplace_back(const Args&... args){
+    push_back(T(args...));
+}
+
+template<class T>
+T* Vector<T>::begin(){
     return array_;
 }
 
 template<class T>
-auto Vector<T>::end(){
+T* Vector<T>::end(){
     return array_ + cur_num_elems;
 }
 
