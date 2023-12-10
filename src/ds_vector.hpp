@@ -108,7 +108,7 @@ void Vector<T>::emplace_back(const Args&... args){
 
 template<class T>
 void Vector<T>::insert(int index, const T& el){
-    if (index > cur_num_elems_ - 1 || index < 0)
+    if (!(index >= 0 && index <= cur_num_elems_) || empty())
         throw std::runtime_error("Insertion possible only in borders of vector size");
 
     if (is_full())

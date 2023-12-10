@@ -5,10 +5,10 @@
 
 
 struct Point{
-    int x;
-    int y;
+    float x;
+    float y;
 
-    Point(int x_, int y_){
+    Point(float x_, float y_){
         x = x_;
         y = y_;
     }
@@ -49,16 +49,17 @@ int main(int, char**){
     std::cout << p << '\n';
 
     Vector<Point> v;
-    // Vector<Point> u(v);
 
-    // std::cout << v.get_size() << " " << v.empty() << '\n';
-    // v.push_back(Point(1, 1));
-    // std::cout << v.get_size() << " " << v.empty() << '\n';
-    // v.push_back(Point(1, 1));
-    // std::cout << v.get_size() << " " << v.empty() << '\n';
+    // v.insert(0, Point(0, 4));
     // print(v);
+
+    std::cout << v.get_size() << " " << v.empty() << '\n';
+    v.push_back(Point(1, 1));
+    std::cout << v.get_size() << " " << v.empty() << '\n';
+    v.push_back(Point(1, 1));
+    std::cout << v.get_size() << " " << v.empty() << '\n';
+    print(v);
     // print(u);
-    // // print(u);
 
     v.push_back(Point(1, 3));
     std::cout << v.get_size() << '\n';
@@ -67,31 +68,31 @@ int main(int, char**){
     v[10] = Point(-1, 0.3);
     std::cout << v[11] << '\n';
     print(v);
-    v.insert(-1, Point(7, 7));
     print(v);
-    // v.clear();
-    // print(v);
+    v.clear();
+    print(v);
+    std::cout << "===========\n";
     // v.insert(0, Point(0, 4));
     // print(v);
+    v.push_back(Point(2, 3));
+    print(v);
+    v.pop();
+    print(v);
+    v.push_back(Point(2, 3));
+    print(v);
+    v.emplace_back(3, 4);
+    print(v);
+    v.insert(1, Point(5, 6));
+    print(v);
 
-    // print(v);
-    // v.pop();
-    // print(v);
-    // v.push_back(Point(2, 3));
-    // print(v);
-    // v.emplace_back(3, 4);
-    // print(v);
-    // v.insert(1, Point(5, 6));
-    // print(v);
+    std::cout << "===========\n";
 
-    // std::cout << "===========\n";
-
-    // v.pop();
-    // print(v);
-    // v.push_back(Point(2, 3));
-    // print(v);
-    // v.emplace_back(3, 4);
-    // print(v);
-    // v.insert(1, Point(5, 6));
-    // print(v);
+    v.pop();
+    print(v);
+    v.push_back(Point(2, 3));
+    print(v);
+    v.emplace_back(3, 4);
+    print(v);
+    v.insert(1, Point(5, 6));
+    print(v);
 }
