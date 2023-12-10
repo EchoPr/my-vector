@@ -18,23 +18,23 @@ public:
 
     void pop();
     void push_back(const T&);
-
+    void clear();
+    void insert(int index, const T&);
     template<class... A>
     void emplace_back(const A& ...);
 
-    void insert(int index, const T&);
-
     T* begin() const;
     T* end() const;
+    bool empty() const;
 
 
 private:
     int size_ = 0;
-    T *itop_;
-    int cur_num_elems = 0;
-    int coef_of_extension = 2;
+    T *itop_ = nullptr;
+    int cur_num_elems_ = 0;
+    int coef_of_extension_ = 2;
 
-    T *array_;
+    T *array_ = nullptr;
 
     void extend_array(const int&);
     bool is_full();

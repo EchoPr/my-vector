@@ -40,32 +40,58 @@ void print(Vector<Point>& v){
 }
 
 int main(int, char**){
-    int size;
-    std::cin >> size;
+    // int size;
+    // std::cin >> size;
 
-    Vector<Point> v(size, Point(1, 2));
-    Vector<Point> u(v);
+    Point p(1, 2);
+    std::cout << p << '\n';
+    p = Point(3, 5);
+    std::cout << p << '\n';
 
+    Vector<Point> v;
+    // Vector<Point> u(v);
+
+    // std::cout << v.get_size() << " " << v.empty() << '\n';
+    // v.push_back(Point(1, 1));
+    // std::cout << v.get_size() << " " << v.empty() << '\n';
+    // v.push_back(Point(1, 1));
+    // std::cout << v.get_size() << " " << v.empty() << '\n';
+    // print(v);
     // print(u);
+    // // print(u);
 
+    v.push_back(Point(1, 3));
+    std::cout << v.get_size() << '\n';
+    v[0] = Point(1, 222);
+    std::cout << v.get_size() << '\n';
+    v[10] = Point(-1, 0.3);
+    std::cout << v[11] << '\n';
     print(v);
-    v.pop();
+    v.insert(-1, Point(7, 7));
     print(v);
-    v.push_back(Point(2, 3));
-    print(v);
-    v.emplace_back(3, 4);
-    print(v);
-    v.insert(1, Point(5, 6));
-    print(v);
+    // v.clear();
+    // print(v);
+    // v.insert(0, Point(0, 4));
+    // print(v);
 
-    std::cout << "===========\n";
+    // print(v);
+    // v.pop();
+    // print(v);
+    // v.push_back(Point(2, 3));
+    // print(v);
+    // v.emplace_back(3, 4);
+    // print(v);
+    // v.insert(1, Point(5, 6));
+    // print(v);
 
-    v.pop();
-    print(v);
-    v.push_back(Point(2, 3));
-    print(v);
-    v.emplace_back(3, 4);
-    print(v);
-    v.insert(1, Point(5, 6));
-    print(v);
+    // std::cout << "===========\n";
+
+    // v.pop();
+    // print(v);
+    // v.push_back(Point(2, 3));
+    // print(v);
+    // v.emplace_back(3, 4);
+    // print(v);
+    // v.insert(1, Point(5, 6));
+    // print(v);
 }
